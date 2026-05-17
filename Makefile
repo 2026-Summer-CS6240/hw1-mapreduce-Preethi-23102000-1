@@ -2,12 +2,14 @@
 
 # Customize these paths for your environment.
 # -----------------------------------------------------------
-hadoop.root=/usr/local/hadoop-3.3.5
+hadoop.root=D:/NEU/Summer-26/CS6240-LSPDP/software/hadoop-3.3.5/hadoop-3.3.5
 jar.name=mr-demo-1.0.jar
 jar.path=target/${jar.name}
 job.name=wc.WordCount
-local.input=input
+local.input=input/hhg.txt
 local.output=output
+#local.input=input/hhg-small.txt
+#local.output=outputSmall
 # Pseudo-Cluster Execution
 hdfs.user.name=joe
 hdfs.input=input
@@ -32,7 +34,7 @@ jar:
 
 # Removes local output directory.
 clean-local-output:
-	rm -rf ${local.output}*
+	if exist ${local.output} rmdir /s /q ${local.output}
 
 # Runs standalone
 # Make sure Hadoop  is set up (in /etc/hadoop files) for standalone operation (not pseudo-cluster).
